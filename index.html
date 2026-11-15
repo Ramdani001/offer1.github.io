@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BODYWORKS — SPA | Sanctuary, Massage & Architectural Venue • Seminyak, Bali</title>
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Configuration matching Reference Screenshot Palette -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blush: '#F2CEC3',
+            blushSoft: '#F6DDD5',
+            ivory: '#FAF4F0',
+            creamCard: '#FFFBF9',
+            turquoise: '#279B90',
+            turquoiseLight: '#48B5A9',
+            turquoiseDark: '#1D7A71',
+            terracotta: '#C66A56',
+            terracottaSoft: '#DF8572',
+            slateTeal: '#233332',
+            slateMuted: '#4A5E5C',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            logo: ['"Montserrat"', 'sans-serif'],
+          },
+          letterSpacing: {
+            editorial: '0.22em',
+            wideLabel: '0.15em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Editorial Refinements */
+    body {
+      background-color: #FAF4F0;
+      color: #233332;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .font-editorial {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    .font-wordmark {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Subtle Reveal Animation */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smooth Image Zoom */
+    .img-zoom-container {
+      overflow: hidden;
+    }
+    .img-zoom-container img {
+      transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .img-zoom-container:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F2CEC3;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #279B90;
+      border-radius: 9999px;
+    }
+
+    /* Hairline Dividers */
+    .hairline-b {
+      border-bottom: 1px solid rgba(39, 155, 144, 0.22);
+    }
+    .hairline-t {
+      border-top: 1px solid rgba(39, 155, 144, 0.22);
+    }
+    .hairline-all {
+      border: 1px solid rgba(39, 155, 144, 0.25);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-turquoise/20 selection:text-slateTeal">
+
+  <!-- ===================================================================== -->
+  <!-- 1. CENTERED BLUSH PEACH HEADER & EXACT TURQUOISE GEOMETRIC LOGO       -->
+  <!-- ===================================================================== -->
+  <header id="navbar" class="sticky top-0 z-40 bg-blush/95 backdrop-blur-md transition-all duration-300 border-b border-turquoise/15">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-4 pb-3">
+      <!-- Top Utility & Centered Brand Emblem Row -->
+      <div class="grid grid-cols-3 items-center">
+        <!-- Left Spacer / Mobile Hamburger -->
+        <div class="flex items-center">
+          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu" class="lg:hidden p-2 rounded-full text-turquoise hover:bg-white/40 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+          </button>
+          <span class="hidden lg:inline-block text-[11px] tracking-editorial uppercase text-turquoise/80 font-medium">
+            Seminyak • Bali
+          </span>
+        </div>
+
+        <!-- Centered Exact Moroccan Geometric Star Emblem & Wordmark -->
+        <a href="#" class="flex flex-col items-center justify-center group py-1">
+          <!-- Custom SVG Recreating the Exact Hexagonal Zellige 8-Point Star Logo -->
+          <svg class="w-12 h-14 sm:w-14 sm:h-16 transition-transform duration-500 group-hover:scale-105" viewBox="0 0 120 138" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bodyworks Spa Geometric Logo">
+            <!-- Top Facet (Seafoam) -->
+            <polygon points="60,4 84,18 60,34 36,18" fill="#48B5A9"/>
+            <!-- Top-Right Facet (Turquoise) -->
+            <polygon points="88,21 112,35 112,64 88,50" fill="#279B90"/>
+            <!-- Bottom-Right Facet (Seafoam) -->
+            <polygon points="112,72 112,101 88,115 88,86" fill="#48B5A9"/>
+            <!-- Bottom Facet (Turquoise) -->
+            <polygon points="60,102 84,118 60,132 36,118" fill="#279B90"/>
+            <!-- Bottom-Left Facet (Seafoam) -->
+            <polygon points="32,86 32,115 8,101 8,72" fill="#48B5A9"/>
+            <!-- Top-Left Facet (Turquoise) -->
+            <polygon points="8,64 8,35 32,21 32,50" fill="#279B90"/>
+
+            <!-- Inner Zellige Frame Petals -->
+            <polygon points="60,38 72,49 85,49 77,61 85,74 72,74 60,86 48,74 35,74 43,61 35,49 48,49" fill="#48B5A9" opacity="0.45"/>
+
+            <!-- Central 8-Pointed Moroccan Star -->
+            <polygon points="60,40 66,53 80,48 73,61 84,68 70,71 72,85 60,76 48,85 50,71 36,68 47,61 40,48 54,53" fill="#279B90"/>
+          </svg>
+
+          <!-- Wordmark -->
+          <span class="font-wordmark text-lg sm:text-[22px] tracking-[0.14em] font-medium text-turquoise leading-none mt-1">
+            BODYWORKS
+          </span>
+          <div class="flex items-center gap-2 mt-1">
+            <span class="w-3 h-[1.5px] bg-turquoise"></span>
+            <span class="font-wordmark text-[10px] sm:text-[11px] tracking-[0.26em] font-medium text-turquoise uppercase">SPA</span>
+            <span class="w-3 h-[1.5px] bg-turquoise"></span>
+          </div>
+        </a>
+
+        <!-- Right Actions: ID/EN Switcher & Book Pill -->
+        <div class="flex items-center justify-end gap-2.5 sm:gap-3.5">
+          <!-- Language Toggle -->
+          <div class="flex items-center bg-white/55 rounded-full p-0.5 border border-turquoise/25 text-[10px] font-semibold">
+            <button id="lang-id" onclick="setLanguage('id')" class="px-2.5 py-1 rounded-full transition-all bg-turquoise text-white">ID</button>
+            <button id="lang-en" onclick="setLanguage('en')" class="px-2.5 py-1 rounded-full transition-all text-turquoise hover:bg-white/60">EN</button>
+          </div>
+
+          <button onclick="openBookingModal('spa')" class="hidden sm:inline-flex items-center gap-2 bg-turquoise hover:bg-turquoiseDark text-white text-[11px] tracking-wideLabel uppercase font-medium px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm">
+            <span data-i18n="nav_cta">Reserve</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Links (Matching Screenshot Menu Items) -->
+      <nav class="hidden lg:flex items-center justify-center gap-9 pt-3 pb-1 text-[13px] font-medium text-turquoise">
+        <a href="#about" class="pb-1 border-b-2 border-turquoise transition-all" data-i18n="nav_about">About</a>
+        <a href="#our-story" class="pb-1 border-b-2 border-transparent hover:border-turquoise transition-all" data-i18n="nav_story">Our Story</a>
+        <a href="#treatments" class="pb-1 border-b-2 border-transparent hover:border-turquoise transition-all" data-i18n="nav_treatments">Treatments</a>
+        <a href="#photoshoot" class="pb-1 border-b-2 border-transparent hover:border-turquoise transition-all" data-i18n="nav_photoshoot">Photoshoots</a>
+        <a href="#gift-vouchers" class="pb-1 border-b-2 border-transparent hover:border-turquoise transition-all" data-i18n="nav_vouchers">Gift Vouchers</a>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-blush border-t border-turquoise/20 px-6 py-5 space-y-3">
+      <div class="flex flex-col space-y-2.5 text-sm font-medium text-turquoise">
+        <a href="#about" onclick="toggleMobileMenu()" class="py-1.5 hover:text-turquoiseDark" data-i18n="nav_about">About</a>
+        <a href="#our-story" onclick="toggleMobileMenu()" class="py-1.5 hover:text-turquoiseDark" data-i18n="nav_story">Our Story</a>
+        <a href="#treatments" onclick="toggleMobileMenu()" class="py-1.5 hover:text-turquoiseDark" data-i18n="nav_treatments">Treatments</a>
+        <a href="#photoshoot" onclick="toggleMobileMenu()" class="py-1.5 hover:text-turquoiseDark" data-i18n="nav_photoshoot">Photoshoots</a>
+        <a href="#gift-vouchers" onclick="toggleMobileMenu()" class="py-1.5 hover:text-turquoiseDark" data-i18n="nav_vouchers">Gift Vouchers</a>
+      </div>
+      <div class="pt-3 border-t border-turquoise/20">
+        <button onclick="toggleMobileMenu(); openBookingModal('spa');" class="w-full bg-turquoise text-white text-xs tracking-wideLabel uppercase font-medium py-3 rounded-full" data-i18n="nav_cta">
+          Reserve Treatment
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- 2. BLUSH-FRAMED ARCHITECTURAL HERO SECTION                            -->
+  <!-- ===================================================================== -->
+  <section id="about" class="bg-blush pt-4 pb-14 sm:pb-20 px-4 sm:px-8 lg:px-12">
+    <div class="max-w-7xl mx-auto">
+      <!-- Framed Terracotta Courtyard Hero Banner (Matching Screenshot Framing) -->
+      <div class="relative rounded-[2rem] overflow-hidden min-h-[76vh] sm:min-h-[82vh] flex items-end shadow-xl">
+        <img
+          src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2000&q=85"
+          onerror="this.src='https://placehold.co/1920x1080/C66A56/FAF4F0?text=Bodyworks+Spa+Seminyak+Bali'"
+          alt="Terracotta Pink Moroccan Arches and Hanging Greenery at Bodyworks Spa"
+          class="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <!-- Warm Terracotta & Deep Teal-Slate Atmospheric Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#2B1B17]/85 via-[#4A2820]/35 to-transparent"></div>
+
+        <!-- Hero Content Overlay -->
+        <div class="relative z-10 w-full p-7 sm:p-12 lg:p-16 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+          <div class="max-w-2xl text-ivory">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-blush/90 text-turquoise text-[11px] tracking-editorial uppercase font-semibold mb-5 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-turquoise"></span>
+              <span data-i18n="hero_overline">Seminyak’s Iconic Sanctuary • Est. 1994</span>
+            </div>
+
+            <h1 class="font-editorial text-4xl sm:text-6xl lg:text-[66px] font-light leading-[1.06] text-white mb-5" data-i18n="hero_title">
+              Where Balinese Healing Meets <span class="italic font-normal text-blush">Terracotta Serenity</span>
+            </h1>
+
+            <p class="text-sm sm:text-base text-ivory/90 font-light leading-relaxed max-w-xl" data-i18n="hero_subtitle">
+              Masuki oase ketenangan di balik lengkungan terakota merah muda, lentera kuningan gantung, dan dedaunan tropis. Nikmati pijat holistik khas Bali atau akses eksklusif untuk sesi pemotretan editorial Anda.
+            </p>
+          </div>
+
+          <!-- Dual Action Pills -->
+          <div class="flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-end gap-3.5 shrink-0">
+            <a href="#treatments" class="inline-flex items-center justify-center gap-3 bg-turquoise hover:bg-turquoiseDark text-white px-7 py-4 rounded-full text-xs tracking-wideLabel uppercase font-semibold transition-all duration-300 shadow-lg">
+              <span data-i18n="hero_cta_spa">Explore Spa Rituals</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#photoshoot" class="inline-flex items-center justify-center gap-2 bg-blush/95 hover:bg-white text-turquoise px-7 py-3.5 rounded-full text-xs tracking-wideLabel uppercase font-semibold transition-all duration-300 shadow-md">
+              <span data-i18n="hero_cta_photo">Photoshoot Venue Access</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 3. OUR STORY & ARCHITECTURAL HERITAGE                                 -->
+  <!-- ===================================================================== -->
+  <section id="our-story" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <!-- Left Editorial Visual -->
+      <div class="lg:col-span-6 reveal-up">
+        <div class="relative">
+          <div class="rounded-[2rem] overflow-hidden shadow-xl aspect-[4/5] img-zoom-container bg-blushSoft border-4 border-blush">
+            <img
+              src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1200&q=85"
+              onerror="this.src='https://placehold.co/800x1000/F2CEC3/279B90?text=Bodyworks+Courtyard'"
+              alt="Serene Spa Courtyard and Pool"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Floating Turquoise & Blush Card -->
+          <div class="hidden sm:block absolute -bottom-6 -right-6 bg-blush p-6 rounded-2xl shadow-lg border border-turquoise/25 max-w-[240px]">
+            <p class="font-editorial italic text-2xl text-turquoise font-medium mb-1">“A Sanctuary of Rose & Teal”</p>
+            <p class="text-xs text-slateTeal leading-relaxed" data-i18n="sanctuary_badge">
+              Lengkungan terakota merah muda, ubin geometris pirus, dan cahaya fajar lembut Seminyak.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Editorial Story -->
+      <div class="lg:col-span-6 space-y-6 reveal-up">
+        <p class="text-xs tracking-editorial uppercase text-turquoise font-semibold" data-i18n="sanctuary_overline">Our Story • Since 1994</p>
+        <h2 class="font-editorial text-3xl sm:text-5xl font-light text-slateTeal leading-[1.14]" data-i18n="sanctuary_title">
+          Warisan Perawatan Bali dalam <span class="italic text-terracotta">Arsitektur Ikonik</span>
+        </h2>
+        <div class="w-16 h-[2px] bg-turquoise"></div>
+        <p class="text-sm sm:text-base text-slateMuted leading-relaxed font-light" data-i18n="sanctuary_p1">
+          Berdiri sejak tahun 1994 di Petitenget, Seminyak, Bodyworks Spa telah menjadi ikon kesehatan holistik Bali. Terinspirasi oleh kehangatan arsitektur Maroko berpadu dengan keramahtamahan Bali, setiap ruang kami memadukan dinding terakota salmon yang hangat dengan aksen ubin pirus yang menenangkan.
+        </p>
+        <p class="text-sm sm:text-base text-slateMuted leading-relaxed font-light" data-i18n="sanctuary_p2">
+          Dari ritual pijat tradisional menggunakan minyak esensial murni hingga sesi pemotretan eksklusif sebelum jam operasional, setiap detail dirancang untuk menghadirkan ketenangan abadi bagi tubuh dan jiwa.
+        </p>
+
+        <!-- Key Highlights Grid -->
+        <div class="grid grid-cols-3 gap-4 pt-5 hairline-t">
+          <div>
+            <span class="font-editorial text-3xl font-semibold text-turquoise block">30+</span>
+            <span class="text-[11px] uppercase tracking-wider text-slateMuted" data-i18n="stat_1">Years of Heritage</span>
+          </div>
+          <div>
+            <span class="font-editorial text-3xl font-semibold text-turquoise block">doTERRA</span>
+            <span class="text-[11px] uppercase tracking-wider text-slateMuted" data-i18n="stat_2">Pure Essential Oils</span>
+          </div>
+          <div>
+            <span class="font-editorial text-3xl font-semibold text-turquoise block">Private</span>
+            <span class="text-[11px] uppercase tracking-wider text-slateMuted" data-i18n="stat_3">Sunrise Shoots</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 4. SIGNATURE SPA & MASSAGE TREATMENTS (INTERACTIVE FILTERABLE MENU)   -->
+  <!-- ===================================================================== -->
+  <section id="treatments" class="py-20 sm:py-28 bg-blush/45 hairline-t hairline-b">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12 reveal-up">
+        <p class="text-xs tracking-editorial uppercase text-turquoise font-semibold mb-3" data-i18n="spa_overline">Holistic Wellness Menu</p>
+        <h2 class="font-editorial text-3xl sm:text-5xl font-light text-slateTeal mb-4" data-i18n="spa_title">
+          Signature Massage & <span class="italic text-terracotta">Spa Rituals</span>
+        </h2>
+        <p class="text-sm text-slateMuted font-light leading-relaxed" data-i18n="spa_desc">
+          Setiap perawatan dimulai dengan ritual basuh kaki bunga tropis dan pilihan minyak aromaterapi murni untuk menyelaraskan energi Anda.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12 reveal-up" id="treatment-filters">
+        <button onclick="filterTreatments('all')" data-filter="all" class="filter-btn active px-5 py-2.5 rounded-full text-xs tracking-wideLabel uppercase font-medium transition-all bg-turquoise text-white shadow-sm">
+          <span data-i18n="filter_all">All Rituals</span>
+        </button>
+        <button onclick="filterTreatments('massage')" data-filter="massage" class="filter-btn px-5 py-2.5 rounded-full text-xs tracking-wideLabel uppercase font-medium transition-all bg-creamCard text-turquoise hover:bg-blush border border-turquoise/25">
+          <span data-i18n="filter_massage">Massages</span>
+        </button>
+        <button onclick="filterTreatments('body')" data-filter="body" class="filter-btn px-5 py-2.5 rounded-full text-xs tracking-wideLabel uppercase font-medium transition-all bg-creamCard text-turquoise hover:bg-blush border border-turquoise/25">
+          <span data-i18n="filter_body">Body Treatments</span>
+        </button>
+        <button onclick="filterTreatments('aroma')" data-filter="aroma" class="filter-btn px-5 py-2.5 rounded-full text-xs tracking-wideLabel uppercase font-medium transition-all bg-creamCard text-turquoise hover:bg-blush border border-turquoise/25">
+          <span data-i18n="filter_aroma">doTERRA Rituals</span>
+        </button>
+        <button onclick="filterTreatments('facial')" data-filter="facial" class="filter-btn px-5 py-2.5 rounded-full text-xs tracking-wideLabel uppercase font-medium transition-all bg-creamCard text-turquoise hover:bg-blush border border-turquoise/25">
+          <span data-i18n="filter_facial">Facials</span>
+        </button>
+        <button onclick="filterTreatments('package')" data-filter="package" class="filter-btn px-5 py-2.5 rounded-full text-xs tracking-wideLabel uppercase font-medium transition-all bg-creamCard text-turquoise hover:bg-blush border border-turquoise/25">
+          <span data-i18n="filter_package">Packages</span>
+        </button>
+      </div>
+
+      <!-- Treatments Grid (Rendered dynamically via JS) -->
+      <div id="treatments-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Cards injected by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 5. EXCLUSIVE PHOTOSHOOT VENUE SHOWCASE                                -->
+  <!-- ===================================================================== -->
+  <section id="photoshoot" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+    <!-- Editorial Intro -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14 reveal-up">
+      <div class="max-w-2xl">
+        <p class="text-xs tracking-editorial uppercase text-turquoise font-semibold mb-3" data-i18n="photo_overline">Exclusive Architectural Access</p>
+        <h2 class="font-editorial text-3xl sm:text-5xl font-light text-slateTeal leading-[1.12]" data-i18n="photo_title">
+          Private Venue for <span class="italic text-terracotta">Editorial, Commercial & Pre-Wedding</span> Photography
+        </h2>
+      </div>
+      <div class="max-w-md">
+        <p class="text-sm text-slateMuted font-light leading-relaxed" data-i18n="photo_intro">
+          Abadikan karya visual di tengah lengkungan terakota merah muda, lentera kuningan gantung, dan kolam refleksi yang tenang—sepenuhnya privat sebelum pintu spa dibuka untuk umum.
+        </p>
+      </div>
+    </div>
+
+    <!-- Curated Asymmetric Editorial Gallery (Click to open Lightbox) -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 reveal-up">
+      <!-- Item 1: Large Vertical Left -->
+      <div onclick="openLightbox(0)" class="md:col-span-5 group relative rounded-3xl overflow-hidden cursor-pointer img-zoom-container aspect-[3/4] bg-blush shadow-sm border border-turquoise/15">
+        <img
+          src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=85"
+          onerror="this.src='https://placehold.co/800x1060/F2CEC3/279B90?text=Terracotta+Archways'"
+          alt="Terracotta Archways & Sunlit Courtyard"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#233332]/80 via-transparent to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
+        <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between text-white">
+          <div>
+            <span class="text-[10px] tracking-editorial uppercase text-blush font-semibold block mb-1">01 / Courtyard</span>
+            <h3 class="font-editorial text-2xl font-normal" data-i18n="gal_1_title">The Pink Terracotta Archways</h3>
+          </div>
+          <span class="w-9 h-9 rounded-full bg-blush text-turquoise flex items-center justify-center group-hover:bg-turquoise group-hover:text-white transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0zM11 8v6M8 11h6"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Right Column Cluster -->
+      <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+        <!-- Item 2 -->
+        <div onclick="openLightbox(1)" class="group relative rounded-3xl overflow-hidden cursor-pointer img-zoom-container aspect-[4/3] sm:aspect-auto bg-blush shadow-sm border border-turquoise/15">
+          <img
+            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=85"
+            onerror="this.src='https://placehold.co/800x600/F2CEC3/279B90?text=Reflection+Pool'"
+            alt="Serene Pool Reflection"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#233332]/75 via-transparent to-transparent"></div>
+          <div class="absolute bottom-5 left-5 right-5 text-white">
+            <span class="text-[10px] tracking-editorial uppercase text-blush font-semibold block mb-0.5">02 / Oasis</span>
+            <h3 class="font-editorial text-xl" data-i18n="gal_2_title">Tranquil Water Reflections</h3>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div onclick="openLightbox(2)" class="group relative rounded-3xl overflow-hidden cursor-pointer img-zoom-container aspect-[4/3] sm:aspect-auto bg-blush shadow-sm border border-turquoise/15">
+          <img
+            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=85"
+            onerror="this.src='https://placehold.co/800x600/F2CEC3/279B90?text=Sanctuary+Suite'"
+            alt="Minimalist Spa Treatment Suite"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#233332]/75 via-transparent to-transparent"></div>
+          <div class="absolute bottom-5 left-5 right-5 text-white">
+            <span class="text-[10px] tracking-editorial uppercase text-blush font-semibold block mb-0.5">03 / Interiors</span>
+            <h3 class="font-editorial text-xl" data-i18n="gal_3_title">Blush & Botanical Suites</h3>
+          </div>
+        </div>
+
+        <!-- Item 4: Wide Bottom -->
+        <div onclick="openLightbox(3)" class="sm:col-span-2 group relative rounded-3xl overflow-hidden cursor-pointer img-zoom-container aspect-[16/9] bg-blush shadow-sm border border-turquoise/15">
+          <img
+            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1400&q=85"
+            onerror="this.src='https://placehold.co/1200x675/F2CEC3/279B90?text=Morning+Light+Shadows'"
+            alt="Golden Hour Shadows & Botanicals"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#233332]/75 via-transparent to-transparent"></div>
+          <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between text-white">
+            <div>
+              <span class="text-[10px] tracking-editorial uppercase text-blush font-semibold block mb-0.5">04 / Golden Dawn</span>
+              <h3 class="font-editorial text-2xl" data-i18n="gal_4_title">Morning Light & Hanging Lanterns</h3>
+            </div>
+            <span class="text-xs tracking-wideLabel uppercase underline underline-offset-4 hidden sm:inline text-blush" data-i18n="view_gallery">Inspect Detail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 6. VENUE RATES, HOURS, TERMS & INTERACTIVE CALCULATOR                 -->
+  <!-- ===================================================================== -->
+  <section id="rates" class="py-20 sm:py-28 bg-blush text-slateTeal hairline-t hairline-b">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      <!-- Header -->
+      <div class="max-w-2xl mb-14 reveal-up">
+        <p class="text-xs tracking-editorial uppercase text-turquoise font-semibold mb-3" data-i18n="rates_overline">Private Photoshoot Access</p>
+        <h2 class="font-editorial text-3xl sm:text-5xl font-light text-slateTeal mb-4" data-i18n="rates_title">
+          Venue Rental Rates & <span class="italic text-terracotta">Session Estimator</span>
+        </h2>
+        <p class="text-sm text-slateMuted font-normal leading-relaxed" data-i18n="rates_subtitle">
+          Untuk menjaga privasi dan ketenangan tamu spa kami, seluruh sesi pemotretan dilaksanakan secara eksklusif sebelum jam operasional spa dimulai.
+        </p>
+      </div>
+
+      <!-- Two-Column Architectural Rate Card & Calculator -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start reveal-up">
+        
+        <!-- Left Column: Official Rate Card & Terms Accordion -->
+        <div class="lg:col-span-6 bg-creamCard border border-turquoise/25 rounded-3xl p-7 sm:p-10 space-y-8 shadow-sm">
+          <div class="flex items-start justify-between gap-4 pb-6 border-b border-turquoise/20">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full bg-blush text-turquoise text-[10px] tracking-editorial uppercase font-semibold mb-3" data-i18n="rate_badge">
+                Pre-Operational Exclusive
+              </span>
+              <h3 class="font-editorial text-3xl text-slateTeal" data-i18n="rate_card_title">Morning Sanctuary Access</h3>
+              <p class="text-xs text-slateMuted mt-1" data-i18n="rate_hours">Setiap Hari: 06:00 – 08:30 WITA (Maks. 2.5 Jam)</p>
+            </div>
+            <div class="text-right">
+              <span class="text-[11px] uppercase tracking-wider text-slateMuted block" data-i18n="rate_per_hour">Tarif Sewa</span>
+              <span class="font-editorial text-3xl sm:text-4xl text-turquoise font-semibold">IDR 1.750K</span>
+              <span class="text-xs text-slateMuted block">/ jam (hour)</span>
+            </div>
+          </div>
+
+          <!-- Included Highlights -->
+          <ul class="space-y-3.5 text-sm text-slateTeal font-normal">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-turquoise shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span data-i18n="inc_1">Akses penuh tanpa gangguan ke area courtyard ikonik, kolam refleksi, dan koridor lengkung terakota.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-turquoise shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span data-i18n="inc_2">Ruang ganti & persiapan rias privat ber-AC untuk model atau pasangan.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-turquoise shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span data-i18n="inc_3">Ideal untuk sesi Pre-Wedding, Editorial Fashion, Campaign Brand, maupun Portofolio Pribadi.</span>
+            </li>
+          </ul>
+
+          <!-- Interactive Terms & Conditions Accordion -->
+          <div class="pt-4 border-t border-turquoise/20">
+            <button onclick="toggleTermsAccordion()" class="w-full flex items-center justify-between py-2 text-left group">
+              <span class="text-xs tracking-wideLabel uppercase text-turquoise font-semibold group-hover:underline" data-i18n="terms_toggle">
+                Syarat & Ketentuan Pemotretan (Terms & Conditions)
+              </span>
+              <svg id="terms-chevron" class="w-4 h-4 text-turquoise transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div id="terms-content" class="hidden pt-4 space-y-2.5 text-xs text-slateMuted leading-relaxed">
+              <p>• <strong class="text-slateTeal font-semibold" data-i18n="t1_b">Batas Waktu Ketat:</strong> <span data-i18n="t1_t">Seluruh kru dan peralatan wajib meninggalkan area sebelum pukul 08:30 WITA demi persiapan pembukaan spa pukul 09:00.</span></p>
+              <p>• <strong class="text-slateTeal font-semibold" data-i18n="t2_b">Kapasitas Kru:</strong> <span data-i18n="t2_t">Maksimal 6 orang dalam satu tim (termasuk fotografer, asisten, MUA, dan talent/pasangan).</span></p>
+              <p>• <strong class="text-slateTeal font-semibold" data-i18n="t3_b">Peralatan & Properti:</strong> <span data-i18n="t3_t">Penggunaan lampu studio besar, drone, atau pemindahan furnitur spa memerlukan persetujuan tertulis sebelumnya.</span></p>
+              <p>• <strong class="text-slateTeal font-semibold" data-i18n="t4_b">Reservasi & Pembayaran:</strong> <span data-i18n="t4_t">Pemesanan dilakukan minimal 3 hari sebelumnya dengan pelunasan penuh untuk mengunci tanggal. Perubahan jadwal (reschedule) dapat dilakukan maks. 48 jam sebelum sesi.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Rate & Inquiry Calculator -->
+        <div class="lg:col-span-6 bg-creamCard text-slateTeal border border-turquoise/25 rounded-3xl p-7 sm:p-10 shadow-lg">
+          <h3 class="font-editorial text-3xl text-slateTeal mb-2" data-i18n="calc_title">Calculate & Inquire Session</h3>
+          <p class="text-xs text-slateMuted mb-6" data-i18n="calc_desc">Pilih jenis pemotretan, tanggal, dan durasi untuk estimasi biaya instan.</p>
+
+          <form id="photoshoot-calc-form" onsubmit="submitPhotoshootInquiry(event)" class="space-y-5">
+            <!-- Shoot Type -->
+            <div>
+              <label class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-2" data-i18n="calc_type_label">Kategori Pemotretan</label>
+              <div class="grid grid-cols-3 gap-2.5">
+                <button type="button" onclick="selectShootType('Pre-Wedding')" class="shoot-type-btn active py-2.5 px-3 rounded-xl text-xs font-semibold border border-turquoise bg-turquoise text-white transition-all">
+                  Pre-Wedding
+                </button>
+                <button type="button" onclick="selectShootType('Commercial / Brand')" class="shoot-type-btn py-2.5 px-3 rounded-xl text-xs font-medium border border-turquoise/25 bg-blush/35 text-slateTeal hover:border-turquoise transition-all">
+                  Commercial
+                </button>
+                <button type="button" onclick="selectShootType('Personal Editorial')" class="shoot-type-btn py-2.5 px-3 rounded-xl text-xs font-medium border border-turquoise/25 bg-blush/35 text-slateTeal hover:border-turquoise transition-all">
+                  Personal
+                </button>
+              </div>
+            </div>
+
+            <!-- Date & Duration -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="shoot-date" class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-2" data-i18n="calc_date_label">Tanggal Rencana</label>
+                <input type="date" id="shoot-date" required class="w-full px-4 py-3 rounded-xl bg-ivory border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise" />
+              </div>
+
+              <div>
+                <label for="shoot-hours" class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-2" data-i18n="calc_hours_label">Durasi Sewa (06:00 – 08:30)</label>
+                <select id="shoot-hours" onchange="updatePhotoshootEstimate()" class="w-full px-4 py-3 rounded-xl bg-ivory border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise">
+                  <option value="1">1 Jam (06:00 – 07:00)</option>
+                  <option value="1.5">1.5 Jam (06:00 – 07:30)</option>
+                  <option value="2" selected>2 Jam (06:00 – 08:00)</option>
+                  <option value="2.5">2.5 Jam Full (06:00 – 08:30)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Client Name & Crew Size -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="shoot-name" class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-2" data-i18n="calc_name_label">Nama / Studio / Brand</label>
+                <input type="text" id="shoot-name" required placeholder="e.g. Clara & Studio Lumière" class="w-full px-4 py-3 rounded-xl bg-ivory border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise" />
+              </div>
+              <div>
+                <label for="shoot-crew" class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-2" data-i18n="calc_crew_label">Jumlah Kru (Maks. 6)</label>
+                <select id="shoot-crew" class="w-full px-4 py-3 rounded-xl bg-ivory border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise">
+                  <option value="2 Orang">2 Orang</option>
+                  <option value="3-4 Orang" selected>3 – 4 Orang</option>
+                  <option value="5-6 Orang">5 – 6 Orang (Maksimal)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Live Estimate Summary Box -->
+            <div class="bg-blush/55 rounded-2xl p-5 flex items-center justify-between border border-turquoise/25">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-slateMuted block" data-i18n="calc_est_label">Estimasi Total Sewa</span>
+                <span id="calc-summary-detail" class="text-xs text-slateTeal font-medium">2 Jam × IDR 1.750.000</span>
+              </div>
+              <div class="text-right">
+                <span id="calc-total-price" class="font-editorial text-3xl font-semibold text-turquoise">IDR 3.500.000</span>
+                <span class="text-[10px] text-slateMuted block">Nett / Sudah Termasuk Pajak</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <button type="submit" class="w-full bg-turquoise hover:bg-turquoiseDark text-white text-xs tracking-wideLabel uppercase font-semibold py-4 px-5 rounded-full transition-all flex items-center justify-center gap-2 shadow-md">
+                <span data-i18n="calc_btn_wa">Send via WhatsApp</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+              <button type="button" onclick="copyInquiryToClipboard()" class="w-full bg-transparent hover:bg-blush/40 text-turquoise border border-turquoise text-xs tracking-wideLabel uppercase font-semibold py-4 px-5 rounded-full transition-all">
+                <span data-i18n="calc_btn_copy">Copy Inquiry Text</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 7. LUXURY GIFT VOUCHERS SECTION (MATCHING HEADER NAVIGATION)          -->
+  <!-- ===================================================================== -->
+  <section id="gift-vouchers" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-up">
+      <!-- Left: Interactive Blush & Turquoise Foil Gift Card Preview -->
+      <div class="lg:col-span-6">
+        <div class="relative rounded-[2rem] bg-blush p-8 sm:p-11 shadow-xl border border-turquoise/30 overflow-hidden">
+          <!-- Subtle Background Geometric Watermark -->
+          <svg class="absolute -right-10 -bottom-10 w-64 h-64 opacity-15 pointer-events-none" viewBox="0 0 120 138" fill="none">
+            <polygon points="60,4 84,18 60,34 36,18" fill="#279B90"/>
+            <polygon points="88,21 112,35 112,64 88,50" fill="#279B90"/>
+            <polygon points="112,72 112,101 88,115 88,86" fill="#279B90"/>
+            <polygon points="60,102 84,118 60,132 36,118" fill="#279B90"/>
+            <polygon points="32,86 32,115 8,101 8,72" fill="#279B90"/>
+            <polygon points="8,64 8,35 32,21 32,50" fill="#279B90"/>
+          </svg>
+
+          <div class="relative z-10 flex flex-col justify-between min-h-[260px] sm:min-h-[300px]">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-3">
+                <svg class="w-9 h-10" viewBox="0 0 120 138" fill="none">
+                  <polygon points="60,4 84,18 60,34 36,18" fill="#48B5A9"/>
+                  <polygon points="88,21 112,35 112,64 88,50" fill="#279B90"/>
+                  <polygon points="112,72 112,101 88,115 88,86" fill="#48B5A9"/>
+                  <polygon points="60,102 84,118 60,132 36,118" fill="#279B90"/>
+                  <polygon points="32,86 32,115 8,101 8,72" fill="#48B5A9"/>
+                  <polygon points="8,64 8,35 32,21 32,50" fill="#279B90"/>
+                  <polygon points="60,40 66,53 80,48 73,61 84,68 70,71 72,85 60,76 48,85 50,71 36,68 47,61 40,48 54,53" fill="#279B90"/>
+                </svg>
+                <div>
+                  <span class="font-wordmark text-base tracking-[0.16em] font-semibold text-turquoise block">BODYWORKS</span>
+                  <span class="font-wordmark text-[9px] tracking-[0.26em] text-turquoise uppercase">— SPA GIFT VOUCHER —</span>
+                </div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-white/60 text-turquoise text-[10px] tracking-editorial uppercase font-semibold">
+                Seminyak • Bali
+              </span>
+            </div>
+
+            <div class="my-8">
+              <p class="text-[10px] uppercase tracking-editorial text-slateMuted mb-1" data-i18n="voucher_for_label">Prepared Exclusively For</p>
+              <p id="voucher-preview-recipient" class="font-editorial italic text-3xl sm:text-4xl text-slateTeal">Someone Special</p>
+            </div>
+
+            <div class="pt-5 border-t border-turquoise/25 flex items-end justify-between">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider text-slateMuted block" data-i18n="voucher_exp_label">Selected Indulgence</span>
+                <span id="voucher-preview-package" class="text-xs sm:text-sm font-semibold text-turquoise">Signature Balinese Massage (90 Min)</span>
+              </div>
+              <div class="text-right">
+                <span id="voucher-preview-value" class="font-editorial text-2xl sm:text-3xl font-semibold text-turquoise">IDR 650.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Customizer & Instant Order -->
+      <div class="lg:col-span-6 space-y-5">
+        <p class="text-xs tracking-editorial uppercase text-turquoise font-semibold" data-i18n="voucher_overline">Gift of Serenity</p>
+        <h2 class="font-editorial text-3xl sm:text-5xl font-light text-slateTeal leading-tight" data-i18n="voucher_title">
+          Share the <span class="italic text-terracotta">Bodyworks Sanctuary</span> Experience
+        </h2>
+        <p class="text-sm text-slateMuted font-light leading-relaxed" data-i18n="voucher_desc">
+          Hadiahkan ketenangan melalui voucher digital atau kartu fisik eksklusif berlapis aksen pirus dan blush peach—berlaku 12 bulan untuk seluruh perawatan di Seminyak.
+        </p>
+
+        <div class="space-y-4 pt-2">
+          <div>
+            <label for="voucher-recipient" class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-1.5" data-i18n="voucher_input_name">Nama Penerima Voucher</label>
+            <input type="text" id="voucher-recipient" oninput="updateVoucherPreview()" placeholder="e.g. Nadia Kusuma" class="w-full px-4 py-3 rounded-xl bg-creamCard border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise" />
+          </div>
+
+          <div>
+            <label for="voucher-select" class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-1.5" data-i18n="voucher_input_pkg">Pilih Paket / Nominal Voucher</label>
+            <select id="voucher-select" onchange="updateVoucherPreview()" class="w-full px-4 py-3 rounded-xl bg-creamCard border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise">
+              <option value="Signature Balinese Massage (90 Min)|IDR 650.000">Signature Balinese Massage (90 Min) — IDR 650.000</option>
+              <option value="Royal Javanese Lulur & Flower Bath (120 Min)|IDR 890.000">Royal Javanese Lulur & Flower Bath (120 Min) — IDR 890.000</option>
+              <option value="The Seminyak Royal Escape (180 Min)|IDR 1.450.000">The Seminyak Royal Escape (180 Min) — IDR 1.450.000</option>
+              <option value="Sanctuary Spa Credit Voucher|IDR 2.000.000">Sanctuary Spa Credit Voucher — IDR 2.000.000</option>
+            </select>
+          </div>
+
+          <button onclick="orderGiftVoucher()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-turquoise hover:bg-turquoiseDark text-white text-xs tracking-wideLabel uppercase font-semibold px-8 py-4 rounded-full transition-all shadow-md">
+            <span data-i18n="voucher_btn">Order Gift Voucher via Concierge</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 8. SERENE BLUSH PEACH FOOTER & BALI LOCATION DETAILS                  -->
+  <!-- ===================================================================== -->
+  <footer id="location" class="bg-blush pt-20 pb-12 px-5 sm:px-8 lg:px-12 hairline-t">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 hairline-b">
+        <!-- Brand Column with Exact Logo -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3.5">
+            <svg class="w-10 h-11" viewBox="0 0 120 138" fill="none">
+              <polygon points="60,4 84,18 60,34 36,18" fill="#48B5A9"/>
+              <polygon points="88,21 112,35 112,64 88,50" fill="#279B90"/>
+              <polygon points="112,72 112,101 88,115 88,86" fill="#48B5A9"/>
+              <polygon points="60,102 84,118 60,132 36,118" fill="#279B90"/>
+              <polygon points="32,86 32,115 8,101 8,72" fill="#48B5A9"/>
+              <polygon points="8,64 8,35 32,21 32,50" fill="#279B90"/>
+              <polygon points="60,40 66,53 80,48 73,61 84,68 70,71 72,85 60,76 48,85 50,71 36,68 47,61 40,48 54,53" fill="#279B90"/>
+            </svg>
+            <div>
+              <span class="font-wordmark text-xl tracking-[0.14em] font-medium text-turquoise block leading-none">BODYWORKS</span>
+              <span class="font-wordmark text-[10px] tracking-[0.26em] font-medium text-turquoise uppercase mt-1 block">— SPA —</span>
+            </div>
+          </div>
+          <p class="text-xs text-slateTeal/85 leading-relaxed max-w-sm" data-i18n="footer_about">
+            Destinasi perawatan spa holistik dan ruang arsitektur ikonik di jantung Seminyak, Bali. Menghadirkan ketenangan abadi sejak 1994.
+          </p>
+          <div class="pt-2">
+            <button onclick="openBookingModal('spa')" class="text-xs tracking-wideLabel uppercase text-turquoise hover:text-turquoiseDark font-semibold underline underline-offset-4 transition-colors" data-i18n="footer_book_spa">
+              Book Spa Treatment →
+            </button>
+          </div>
+        </div>
+
+        <!-- Location & Hours -->
+        <div class="lg:col-span-4 space-y-4">
+          <h4 class="text-xs tracking-editorial uppercase text-turquoise font-semibold" data-i18n="footer_loc_title">Sanctuary Location</h4>
+          <p class="text-sm text-slateTeal leading-relaxed">
+            Jalan Lebak Sari No. 3, Petitenget<br/>
+            Seminyak, Badung, Bali 80361<br/>
+            Indonesia
+          </p>
+          <div class="pt-1 text-xs text-slateTeal space-y-1">
+            <p><span class="text-slateMuted" data-i18n="footer_spa_hrs">Spa & Wellness:</span> 09:00 – 22:00 WITA (Daily)</p>
+            <p><span class="text-slateMuted" data-i18n="footer_photo_hrs">Private Photoshoots:</span> 06:00 – 08:30 WITA</p>
+          </div>
+        </div>
+
+        <!-- Direct Concierge Contact -->
+        <div class="lg:col-span-4 space-y-4">
+          <h4 class="text-xs tracking-editorial uppercase text-turquoise font-semibold" data-i18n="footer_contact_title">Concierge & Reservations</h4>
+          <ul class="space-y-2.5 text-sm text-slateTeal">
+            <li>
+              <span class="text-xs uppercase tracking-wider text-slateMuted block">WhatsApp Concierge</span>
+              <a href="https://wa.me/6287815299000" target="_blank" rel="noopener" class="text-turquoise hover:text-turquoiseDark transition-colors font-semibold">+62 8781 5299 000</a>
+            </li>
+            <li>
+              <span class="text-xs uppercase tracking-wider text-slateMuted block">Telephone</span>
+              <a href="tel:+62361733317" class="text-slateTeal hover:text-turquoise transition-colors">+62 (0) 361 733 317</a>
+            </li>
+            <li>
+              <span class="text-xs uppercase tracking-wider text-slateMuted block">Bookings & Inquiries</span>
+              <a href="mailto:bookings@bodyworksbali.com" class="text-slateTeal hover:text-turquoise transition-colors">bookings@bodyworksbali.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slateMuted">
+        <p>© 2026 Bodyworks Spa Bali. All rights reserved.</p>
+        <div class="flex items-center gap-6 text-turquoise font-medium">
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#our-story" class="hover:underline">Our Story</a>
+          <a href="#treatments" class="hover:underline">Treatments</a>
+          <a href="#photoshoot" class="hover:underline">Photoshoots</a>
+          <a href="#gift-vouchers" class="hover:underline">Gift Vouchers</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 1: SPA & CONCIERGE RESERVATION MODAL                            -->
+  <!-- ===================================================================== -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slateTeal/60 backdrop-blur-sm">
+    <div class="bg-creamCard text-slateTeal border border-turquoise/30 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeBookingModal()" aria-label="Close" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-blush text-turquoise hover:bg-turquoise hover:text-white flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <p class="text-[11px] tracking-editorial uppercase text-turquoise font-semibold mb-1" data-i18n="modal_overline">Sanctuary Concierge</p>
+      <h3 class="font-editorial text-3xl text-slateTeal mb-2" data-i18n="modal_title">Reserve Your Experience</h3>
+      <p class="text-xs text-slateMuted mb-6" data-i18n="modal_desc">Lengkapi detail reservasi Anda untuk konfirmasi instan melalui Concierge WhatsApp kami.</p>
+
+      <form onsubmit="submitSpaBooking(event)" class="space-y-4">
+        <div>
+          <label class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-1.5" data-i18n="modal_service_label">Pilihan Perawatan / Sesi</label>
+          <select id="modal-treatment-select" class="w-full px-4 py-3 rounded-xl bg-ivory border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-1.5" data-i18n="modal_date_label">Tanggal</label>
+            <input type="date" id="modal-date" required class="w-full px-4 py-3 rounded-xl bg-ivory border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise" />
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-1.5" data-i18n="modal_time_label">Preferensi Jam</label>
+            <select id="modal-time" class="w-full px-4 py-3 rounded-xl bg-ivory border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise">
+              <option value="10:00 WITA">10:00 WITA</option>
+              <option value="12:00 WITA">12:00 WITA</option>
+              <option value="14:00 WITA" selected>14:00 WITA</option>
+              <option value="16:00 WITA">16:00 WITA</option>
+              <option value="18:30 WITA">18:30 WITA</option>
+              <option value="20:00 WITA">20:00 WITA</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-1.5" data-i18n="modal_guest_name">Nama Lengkap</label>
+            <input type="text" id="modal-name" required placeholder="Nama Anda" class="w-full px-4 py-3 rounded-xl bg-ivory border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise" />
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-turquoise font-semibold mb-1.5" data-i18n="modal_guests">Jumlah Tamu</label>
+            <select id="modal-guests" class="w-full px-4 py-3 rounded-xl bg-ivory border border-turquoise/25 text-sm text-slateTeal focus:outline-none focus:border-turquoise">
+              <option value="1 Tamu">1 Tamu (Solo)</option>
+              <option value="2 Tamu (Couple Suite)">2 Tamu (Couple)</option>
+              <option value="3+ Tamu">3+ Tamu (Group)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full bg-turquoise hover:bg-turquoiseDark text-white text-xs tracking-wideLabel uppercase font-semibold py-4 rounded-full transition-all shadow-lg" data-i18n="modal_submit">
+            Confirm via WhatsApp Concierge
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 2: ARCHITECTURAL GALLERY LIGHTBOX                               -->
+  <!-- ===================================================================== -->
+  <div id="lightbox-modal" onclick="closeLightbox(event)" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-8 bg-slateTeal/90 backdrop-blur-md">
+    <div class="relative max-w-4xl w-full bg-blush rounded-3xl overflow-hidden shadow-2xl border border-turquoise/30" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" aria-label="Close Lightbox" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-blush/90 hover:bg-turquoise text-turquoise hover:text-white flex items-center justify-center transition-colors shadow-md">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="aspect-[16/10] bg-black">
+        <img id="lightbox-img" src="" alt="Architectural View" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-blush text-slateTeal">
+        <div>
+          <span id="lightbox-tag" class="text-[10px] tracking-editorial uppercase text-turquoise font-semibold block mb-1">01 / Courtyard</span>
+          <h4 id="lightbox-title" class="font-editorial text-2xl sm:text-3xl text-slateTeal">The Pink Terracotta Archways</h4>
+          <p id="lightbox-desc" class="text-xs text-slateMuted mt-1 max-w-xl">Dinding lengkung bernuansa terakota hangat dengan pencahayaan alami pagi hari.</p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="navigateLightbox(-1)" class="px-4 py-2 rounded-full border border-turquoise text-turquoise hover:bg-turquoise hover:text-white text-xs font-semibold uppercase tracking-wider transition-colors">Prev</button>
+          <button onclick="navigateLightbox(1)" class="px-4 py-2 rounded-full border border-turquoise text-turquoise hover:bg-turquoise hover:text-white text-xs font-semibold uppercase tracking-wider transition-colors">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- TOAST NOTIFICATION (REPLACING ALERT)                                  -->
+  <!-- ===================================================================== -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden transform transition-all duration-300 translate-y-4 opacity-0">
+    <div class="bg-turquoise text-white px-6 py-4 rounded-2xl shadow-2xl border border-blush/40 flex items-center gap-3 max-w-sm">
+      <span class="w-2.5 h-2.5 rounded-full bg-blush shrink-0"></span>
+      <p id="toast-message" class="text-xs font-medium leading-relaxed">Permintaan berhasil disalin ke clipboard.</p>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT APPLICATION LOGIC                                          -->
+  <!-- ===================================================================== -->
+  <script>
+    // 1. STATE & DATA
+    let currentLang = 'id';
+    let selectedShootType = 'Pre-Wedding';
+    let currentLightboxIndex = 0;
+
+    // Curated Spa Treatments Dataset
+    const spaTreatments = [
+      {
+        id: 'balinese-signature',
+        category: 'massage',
+        duration: '90 Min',
+        price: 'IDR 650.000',
+        name: { id: 'Bodyworks Signature Balinese Massage', en: 'Bodyworks Signature Balinese Massage' },
+        notes: {
+          id: 'Pijatan ritmis tradisional Bali menggunakan minyak hangat frangipani & cendana untuk melancarkan sirkulasi.',
+          en: 'Rhythmic traditional Balinese strokes with warm frangipani & sandalwood oil to restore deep energy flow.'
+        }
+      },
+      {
+        id: 'warm-stone',
+        category: 'massage',
+        duration: '90 Min',
+        price: 'IDR 780.000',
+        name: { id: 'Volcanic Warm Stone Ritual', en: 'Volcanic Warm Stone Ritual' },
+        notes: {
+          id: 'Batu basal vulkanik hangat ditempatkan di titik energi tubuh untuk melepas ketegangan otot mendalam.',
+          en: 'Heated volcanic basalt stones placed along meridian points to melt away deep-seated muscular tension.'
+        }
+      },
+      {
+        id: 'doterra-aroma',
+        category: 'aroma',
+        duration: '90 Min',
+        price: 'IDR 850.000',
+        name: { id: 'doTERRA AromaTouch Sanctuary', en: 'doTERRA AromaTouch Sanctuary' },
+        notes: {
+          id: 'Aplikasi klinis 8 minyak esensial murni doTERRA CPTG sepanjang meridian tulang belakang dan telapak kaki.',
+          en: 'Clinical application of 8 CPTG pure doTERRA essential oils along spinal meridians and reflex zones.'
+        }
+      },
+      {
+        id: 'lulur-ritual',
+        category: 'body',
+        duration: '120 Min',
+        price: 'IDR 890.000',
+        name: { id: 'Moroccan Rose & Terracotta Clay Wrap', en: 'Moroccan Rose & Terracotta Clay Wrap' },
+        notes: {
+          id: 'Masker tanah liat terakota kaya mineral dilanjutkan dengan berendam kelopak mawar & kamboja segar.',
+          en: 'Mineral-rich terracotta clay cocoon followed by a serene rose and frangipani petal bath.'
+        }
+      },
+      {
+        id: 'botanical-facial',
+        category: 'facial',
+        duration: '60 Min',
+        price: 'IDR 620.000',
+        name: { id: '24K Botanical Radiance Facial', en: '24K Botanical Radiance Facial' },
+        notes: {
+          id: 'Perawatan wajah botani murni dengan pijat limfatik wajah untuk kilau kulit sehat dan kencang alami.',
+          en: 'Pure botanical facial paired with sculpting lymphatic drainage massage for luminous, lifted skin.'
+        }
+      },
+      {
+        id: 'sanctuary-journey',
+        category: 'package',
+        duration: '180 Min',
+        price: 'IDR 1.450.000',
+        name: { id: 'The Seminyak Royal Escape Package', en: 'The Seminyak Royal Escape Package' },
+        notes: {
+          id: 'Kombinasi lengkap Signature Massage, Body Scrub, Holistic Facial, serta teh herbal & kudapan sehat.',
+          en: 'Complete indulgence combining Signature Massage, Body Scrub, Holistic Facial, herbal tea & refreshments.'
+        }
+      }
+    ];
+
+    // Gallery Lightbox Dataset
+    const galleryItems = [
+      {
+        tag: '01 / Courtyard',
+        src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=85',
+        title: { id: 'The Pink Terracotta Archways', en: 'The Pink Terracotta Archways' },
+        desc: {
+          id: 'Lengkungan arsitektur terakota merah muda ikonik dengan simetri sempurna dan cahaya matahari pagi yang lembut.',
+          en: 'Iconic pink terracotta architectural arches offering timeless symmetry and diffused morning sunlight.'
+        }
+      },
+      {
+        tag: '02 / Oasis',
+        src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1400&q=85',
+        title: { id: 'Tranquil Water Reflections', en: 'Tranquil Water Reflections' },
+        desc: {
+          id: 'Permukaan kolam tenang yang memantulkan siluet arsitektur untuk komposisi editorial yang dramatis.',
+          en: 'Still courtyard waters reflecting warm architectural silhouettes for dramatic editorial framing.'
+        }
+      },
+      {
+        tag: '03 / Interiors',
+        src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=85',
+        title: { id: 'Blush & Botanical Suites', en: 'Blush & Botanical Suites' },
+        desc: {
+          id: 'Interior ruang perawatan bernuansa blush peach hangat dan batu alam untuk sesi pemotretan intim.',
+          en: 'Warm blush plaster and natural stone treatment suites ideal for intimate portrait sessions.'
+        }
+      },
+      {
+        tag: '04 / Golden Dawn',
+        src: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1400&q=85',
+        title: { id: 'Morning Light & Hanging Lanterns', en: 'Morning Light & Hanging Lanterns' },
+        desc: {
+          id: 'Permainan bayangan dedaunan tropis dan lentera kuningan antara pukul 06:00 hingga 08:30 WITA.',
+          en: 'Organic tropical foliage shadows and brass lanterns between 06:00 and 08:30 WITA.'
+        }
+      }
+    ];
+
+    // Bilingual Dictionary (ID & EN)
+    const i18n = {
+      id: {
+        nav_about: 'About',
+        nav_story: 'Our Story',
+        nav_treatments: 'Treatments',
+        nav_photoshoot: 'Photoshoots',
+        nav_vouchers: 'Gift Vouchers',
+        nav_cta: 'Reservasi',
+        hero_overline: 'Seminyak’s Iconic Sanctuary • Sejak 1994',
+        hero_title: 'Where Balinese Healing Meets <span class="italic font-normal text-blush">Terracotta Serenity</span>',
+        hero_subtitle: 'Masuki oase ketenangan di balik lengkungan terakota merah muda, lentera kuningan gantung, dan dedaunan tropis. Nikmati pijat holistik khas Bali atau akses eksklusif untuk sesi pemotretan editorial Anda.',
+        hero_cta_spa: 'Jelajahi Ritual Spa',
+        hero_cta_photo: 'Sewa Venue Photoshoot',
+        sanctuary_badge: 'Lengkungan terakota merah muda, ubin geometris pirus, dan cahaya fajar lembut Seminyak.',
+        sanctuary_overline: 'Our Story • Sejak 1994',
+        sanctuary_title: 'Warisan Perawatan Bali dalam <span class="italic text-terracotta">Arsitektur Ikonik</span>',
+        sanctuary_p1: 'Berdiri sejak tahun 1994 di Petitenget, Seminyak, Bodyworks Spa telah menjadi ikon kesehatan holistik Bali. Terinspirasi oleh kehangatan arsitektur Maroko berpadu dengan keramahtamahan Bali, setiap ruang kami memadukan dinding terakota salmon yang hangat dengan aksen ubin pirus yang menenangkan.',
+        sanctuary_p2: 'Dari ritual pijat tradisional menggunakan minyak esensial murni hingga sesi pemotretan eksklusif sebelum jam operasional, setiap detail dirancang untuk menghadirkan ketenangan abadi bagi tubuh dan jiwa.',
+        stat_1: 'Tahun Dedikasi',
+        stat_2: 'Minyak Esensial Murni',
+        stat_3: 'Sesi Foto Privat',
+        spa_overline: 'Menu Kesehatan Holistik',
+        spa_title: 'Signature Massage & <span class="italic text-terracotta">Spa Rituals</span>',
+        spa_desc: 'Setiap perawatan dimulai dengan ritual basuh kaki bunga tropis dan pilihan minyak aromaterapi murni untuk menyelaraskan energi Anda.',
+        filter_all: 'Semua Ritual',
+        filter_massage: 'Massages',
+        filter_body: 'Body Treatments',
+        filter_aroma: 'doTERRA Rituals',
+        filter_facial: 'Facials',
+        filter_package: 'Packages',
+        book_treatment_btn: 'Pesan Perawatan',
+        photo_overline: 'Akses Arsitektur Eksklusif',
+        photo_title: 'Private Venue untuk Fotografi <span class="italic text-terracotta">Editorial, Komersial & Pre-Wedding</span>',
+        photo_intro: 'Abadikan karya visual di tengah lengkungan terakota merah muda, lentera kuningan gantung, dan kolam refleksi yang tenang—sepenuhnya privat sebelum pintu spa dibuka untuk umum.',
+        gal_1_title: 'The Pink Terracotta Archways',
+        gal_2_title: 'Tranquil Water Reflections',
+        gal_3_title: 'Blush & Botanical Suites',
+        gal_4_title: 'Morning Light & Hanging Lanterns',
+        view_gallery: 'Lihat Detail',
+        rates_overline: 'Akses Privat Pemotretan',
+        rates_title: 'Tarif Sewa Venue & <span class="italic text-terracotta">Kalkulator Sesi</span>',
+        rates_subtitle: 'Untuk menjaga privasi dan ketenangan tamu spa kami, seluruh sesi pemotretan dilaksanakan secara eksklusif sebelum jam operasional spa dimulai.',
+        rate_badge: 'Eksklusif Pra-Operasional',
+        rate_card_title: 'Morning Sanctuary Access',
+        rate_hours: 'Setiap Hari: 06:00 – 08:30 WITA (Maks. 2.5 Jam)',
+        rate_per_hour: 'Tarif Sewa',
+        inc_1: 'Akses penuh tanpa gangguan ke area courtyard ikonik, kolam refleksi, dan koridor lengkung terakota.',
+        inc_2: 'Ruang ganti & persiapan rias privat ber-AC untuk model atau pasangan.',
+        inc_3: 'Ideal untuk sesi Pre-Wedding, Editorial Fashion, Campaign Brand, maupun Portofolio Pribadi.',
+        terms_toggle: 'Syarat & Ketentuan Pemotretan (Terms & Conditions)',
+        t1_b: 'Batas Waktu Ketat:',
+        t1_t: 'Seluruh kru dan peralatan wajib meninggalkan area sebelum pukul 08:30 WITA demi persiapan pembukaan spa pukul 09:00.',
+        t2_b: 'Kapasitas Kru:',
+        t2_t: 'Maksimal 6 orang dalam satu tim (termasuk fotografer, asisten, MUA, dan talent/pasangan).',
+        t3_b: 'Peralatan & Properti:',
+        t3_t: 'Penggunaan lampu studio besar, drone, atau pemindahan furnitur spa memerlukan persetujuan tertulis sebelumnya.',
+        t4_b: 'Reservasi & Pembayaran:',
+        t4_t: 'Pemesanan dilakukan minimal 3 hari sebelumnya dengan pelunasan penuh untuk mengunci tanggal. Perubahan jadwal (reschedule) dapat dilakukan maks. 48 jam sebelum sesi.',
+        calc_title: 'Hitung & Ajukan Sesi Foto',
+        calc_desc: 'Pilih jenis pemotretan, tanggal, dan durasi untuk estimasi biaya instan.',
+        calc_type_label: 'Kategori Pemotretan',
+        calc_date_label: 'Tanggal Rencana',
+        calc_hours_label: 'Durasi Sewa (06:00 – 08:30)',
+        calc_name_label: 'Nama / Studio / Brand',
+        calc_crew_label: 'Jumlah Kru (Maks. 6)',
+        calc_est_label: 'Estimasi Total Sewa',
+        calc_btn_wa: 'Kirim via WhatsApp',
+        calc_btn_copy: 'Salin Format Pesan',
+        voucher_overline: 'Gift of Serenity',
+        voucher_title: 'Bagikan Pengalaman <span class="italic text-terracotta">Bodyworks Sanctuary</span>',
+        voucher_desc: 'Hadiahkan ketenangan melalui voucher digital atau kartu fisik eksklusif berlapis aksen pirus dan blush peach—berlaku 12 bulan untuk seluruh perawatan di Seminyak.',
+        voucher_for_label: 'Disiapkan Eksklusif Untuk',
+        voucher_exp_label: 'Pilihan Perawatan',
+        voucher_input_name: 'Nama Penerima Voucher',
+        voucher_input_pkg: 'Pilih Paket / Nominal Voucher',
+        voucher_btn: 'Pesan Gift Voucher via Concierge',
+        footer_about: 'Destinasi perawatan spa holistik dan ruang arsitektur ikonik di jantung Seminyak, Bali. Menghadirkan ketenangan abadi sejak 1994.',
+        footer_book_spa: 'Reservasi Perawatan Spa →',
+        footer_loc_title: 'Lokasi Sanctuary',
+        footer_spa_hrs: 'Spa & Wellness:',
+        footer_photo_hrs: 'Private Photoshoots:',
+        footer_contact_title: 'Concierge & Reservasi',
+        modal_overline: 'Sanctuary Concierge',
+        modal_title: 'Reservasi Pengalaman Anda',
+        modal_desc: 'Lengkapi detail reservasi Anda untuk konfirmasi instan melalui Concierge WhatsApp kami.',
+        modal_service_label: 'Pilihan Perawatan / Sesi',
+        modal_date_label: 'Tanggal',
+        modal_time_label: 'Preferensi Jam',
+        modal_guest_name: 'Nama Lengkap',
+        modal_guests: 'Jumlah Tamu',
+        modal_submit: 'Konfirmasi via WhatsApp Concierge'
+      },
+      en: {
+        nav_about: 'About',
+        nav_story: 'Our Story',
+        nav_treatments: 'Treatments',
+        nav_photoshoot: 'Photoshoots',
+        nav_vouchers: 'Gift Vouchers',
+        nav_cta: 'Reserve',
+        hero_overline: 'Seminyak’s Iconic Sanctuary • Est. 1994',
+        hero_title: 'Where Balinese Healing Meets <span class="italic font-normal text-blush">Terracotta Serenity</span>',
+        hero_subtitle: 'Step into a tranquil oasis framed by pink terracotta arches, hanging brass lanterns, and lush tropical foliage. Indulge in holistic Balinese rituals or reserve private pre-opening access for editorial photography.',
+        hero_cta_spa: 'Explore Spa Rituals',
+        hero_cta_photo: 'Photoshoot Venue Access',
+        sanctuary_badge: 'Pink terracotta archways, turquoise geometric zellige tiles, and Seminyak’s gentle dawn light.',
+        sanctuary_overline: 'Our Story • Est. 1994',
+        sanctuary_title: 'Balinese Healing Heritage in <span class="italic text-terracotta">Iconic Architecture</span>',
+        sanctuary_p1: 'Established in 1994 in Petitenget, Seminyak, Bodyworks Spa is Bali’s beloved holistic sanctuary. Inspired by warm Moroccan architecture blended with Balinese hospitality, our spaces pair salmon terracotta arches with soothing turquoise tilework.',
+        sanctuary_p2: 'From traditional massages using pure essential oils to exclusive pre-opening photoshoot access, every detail is thoughtfully crafted to nurture stillness of body and mind.',
+        stat_1: 'Years of Heritage',
+        stat_2: 'Pure Essential Oils',
+        stat_3: 'Sunrise Shoots',
+        spa_overline: 'Holistic Wellness Menu',
+        spa_title: 'Signature Massage & <span class="italic text-terracotta">Spa Rituals</span>',
+        spa_desc: 'Every ritual begins with a tropical floral foot bath and your choice of pure aromatherapy oils to harmonize your energy.',
+        filter_all: 'All Rituals',
+        filter_massage: 'Massages',
+        filter_body: 'Body Treatments',
+        filter_aroma: 'doTERRA Rituals',
+        filter_facial: 'Facials',
+        filter_package: 'Packages',
+        book_treatment_btn: 'Reserve Treatment',
+        photo_overline: 'Exclusive Architectural Access',
+        photo_title: 'Private Venue for <span class="italic text-terracotta">Editorial, Commercial & Pre-Wedding</span> Photography',
+        photo_intro: 'Capture timeless imagery amidst pink terracotta arches, hanging brass lanterns, and serene reflection pools—completely private before our spa doors open to guests.',
+        gal_1_title: 'The Pink Terracotta Archways',
+        gal_2_title: 'Tranquil Water Reflections',
+        gal_3_title: 'Blush & Botanical Suites',
+        gal_4_title: 'Morning Light & Hanging Lanterns',
+        view_gallery: 'Inspect Detail',
+        rates_overline: 'Private Photoshoot Access',
+        rates_title: 'Venue Rental Rates & <span class="italic text-terracotta">Session Estimator</span>',
+        rates_subtitle: 'To preserve the serenity and privacy of our spa guests, all photography sessions are hosted exclusively prior to daily spa opening hours.',
+        rate_badge: 'Pre-Operational Exclusive',
+        rate_card_title: 'Morning Sanctuary Access',
+        rate_hours: 'Daily: 06:00 – 08:30 WITA (Max. 2.5 Hours)',
+        rate_per_hour: 'Rental Rate',
+        inc_1: 'Uninterrupted private access to the iconic courtyard, reflection pool, and terracotta arch corridors.',
+        inc_2: 'Private air-conditioned dressing and makeup preparation suite for talent or couples.',
+        inc_3: 'Ideal for Pre-Wedding stories, Fashion Editorials, Brand Campaigns, and Personal Portfolios.',
+        terms_toggle: 'Photoshoot Terms & Conditions',
+        t1_b: 'Strict Curfew:',
+        t1_t: 'All crew and equipment must vacate the premises strictly by 08:30 WITA ahead of our 09:00 spa opening.',
+        t2_b: 'Crew Capacity:',
+        t2_t: 'Maximum of 6 persons per booking (including photographer, assistants, MUA, and talent/couple).',
+        t3_b: 'Equipment & Props:',
+        t3_t: 'Large studio strobes, drones, or moving spa furniture require prior written approval.',
+        t4_b: 'Booking & Rescheduling:',
+        t4_t: 'Reservations require at least 3 days advance notice with full prepayment to secure the date. Rescheduling is permitted up to 48 hours prior.',
+        calc_title: 'Calculate & Inquire Session',
+        calc_desc: 'Select your shoot category, preferred date, and duration for an instant estimate.',
+        calc_type_label: 'Shoot Category',
+        calc_date_label: 'Preferred Date',
+        calc_hours_label: 'Rental Duration (06:00 – 08:30)',
+        calc_name_label: 'Name / Studio / Brand',
+        calc_crew_label: 'Crew Size (Max. 6)',
+        calc_est_label: 'Estimated Total Rental',
+        calc_btn_wa: 'Send via WhatsApp',
+        calc_btn_copy: 'Copy Inquiry Text',
+        voucher_overline: 'Gift of Serenity',
+        voucher_title: 'Share the <span class="italic text-terracotta">Bodyworks Sanctuary</span> Experience',
+        voucher_desc: 'Gift pure tranquility with a digital or physical blush-and-turquoise embossed voucher—valid for 12 months across all treatments in Seminyak.',
+        voucher_for_label: 'Prepared Exclusively For',
+        voucher_exp_label: 'Selected Indulgence',
+        voucher_input_name: 'Recipient Full Name',
+        voucher_input_pkg: 'Select Treatment or Voucher Value',
+        voucher_btn: 'Order Gift Voucher via Concierge',
+        footer_about: 'A holistic spa sanctuary and iconic architectural landmark in the heart of Seminyak, Bali. Cultivating timeless serenity since 1994.',
+        footer_book_spa: 'Book Spa Treatment →',
+        footer_loc_title: 'Sanctuary Location',
+        footer_spa_hrs: 'Spa & Wellness:',
+        footer_photo_hrs: 'Private Photoshoots:',
+        footer_contact_title: 'Concierge & Reservations',
+        modal_overline: 'Sanctuary Concierge',
+        modal_title: 'Reserve Your Experience',
+        modal_desc: 'Complete your reservation details for instant confirmation via our WhatsApp Concierge.',
+        modal_service_label: 'Selected Treatment / Session',
+        modal_date_label: 'Preferred Date',
+        modal_time_label: 'Preferred Time',
+        modal_guest_name: 'Full Name',
+        modal_guests: 'Number of Guests',
+        modal_submit: 'Confirm via WhatsApp Concierge'
+      }
+    };
+
+    // 2. INITIALIZATION
+    document.addEventListener('DOMContentLoaded', () => {
+      const futureDate = new Date();
+      futureDate.setDate(futureDate.getDate() + 3);
+      const isoDate = futureDate.toISOString().split('T')[0];
+      const shootDateInput = document.getElementById('shoot-date');
+      const modalDateInput = document.getElementById('modal-date');
+      if (shootDateInput) shootDateInput.value = isoDate;
+      if (modalDateInput) modalDateInput.value = isoDate;
+
+      renderTreatments('all');
+      populateModalTreatments();
+      updatePhotoshootEstimate();
+      initScrollReveal();
+    });
+
+    // 3. LANGUAGE SWITCHER
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      const btnId = document.getElementById('lang-id');
+      const btnEn = document.getElementById('lang-en');
+      if (lang === 'id') {
+        btnId.className = 'px-2.5 py-1 rounded-full transition-all bg-turquoise text-white';
+        btnEn.className = 'px-2.5 py-1 rounded-full transition-all text-turquoise hover:bg-white/60';
+      } else {
+        btnEn.className = 'px-2.5 py-1 rounded-full transition-all bg-turquoise text-white';
+        btnId.className = 'px-2.5 py-1 rounded-full transition-all text-turquoise hover:bg-white/60';
+      }
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key]) {
+          el.innerHTML = i18n[lang][key];
+        }
+      });
+
+      const activeFilterBtn = document.querySelector('.filter-btn.active');
+      const currentFilter = activeFilterBtn ? activeFilterBtn.getAttribute('data-filter') : 'all';
+      renderTreatments(currentFilter);
+      populateModalTreatments();
+      updatePhotoshootEstimate();
+    }
+
+    // 4. SPA TREATMENTS RENDER & FILTER
+    function renderTreatments(filterCategory) {
+      const grid = document.getElementById('treatments-grid');
+      if (!grid) return;
+
+      const filtered = filterCategory === 'all'
+        ? spaTreatments
+        : spaTreatments.filter(item => item.category === filterCategory);
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-creamCard rounded-3xl p-7 border border-turquoise/20 flex flex-col justify-between hover:shadow-xl hover:border-turquoise/50 hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3.5 py-1 rounded-full bg-blush text-turquoise text-[10px] tracking-editorial uppercase font-semibold">
+                ${item.duration}
+              </span>
+              <span class="font-editorial text-2xl font-semibold text-turquoise">
+                ${item.price}
+              </span>
+            </div>
+            <h3 class="font-editorial text-2xl text-slateTeal leading-snug mb-3">
+              ${item.name[currentLang]}
+            </h3>
+            <p class="text-xs text-slateMuted leading-relaxed font-light mb-6">
+              ${item.notes[currentLang]}
+            </p>
+          </div>
+          <div class="pt-4 border-t border-turquoise/15 flex items-center justify-between">
+            <span class="text-[10px] uppercase tracking-wider text-slateMuted">Includes Herbal Tea</span>
+            <button onclick="openBookingModal('${item.id}')" class="inline-flex items-center gap-1.5 text-xs tracking-wideLabel uppercase font-semibold text-turquoise hover:text-terracotta transition-colors">
+              <span>${i18n[currentLang].book_treatment_btn}</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterTreatments(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.className = 'filter-btn active px-5 py-2.5 rounded-full text-xs tracking-wideLabel uppercase font-medium transition-all bg-turquoise text-white shadow-sm';
+        } else {
+          btn.className = 'filter-btn px-5 py-2.5 rounded-full text-xs tracking-wideLabel uppercase font-medium transition-all bg-creamCard text-turquoise hover:bg-blush border border-turquoise/25';
+        }
+      });
+      renderTreatments(category);
+    }
+
+    // 5. PHOTOSHOOT CALCULATOR LOGIC
+    function selectShootType(type) {
+      selectedShootType = type;
+      document.querySelectorAll('.shoot-type-btn').forEach(btn => {
+        if (btn.textContent.trim().includes(type.split(' ')[0])) {
+          btn.className = 'shoot-type-btn active py-2.5 px-3 rounded-xl text-xs font-semibold border border-turquoise bg-turquoise text-white transition-all';
+        } else {
+          btn.className = 'shoot-type-btn py-2.5 px-3 rounded-xl text-xs font-medium border border-turquoise/25 bg-blush/35 text-slateTeal hover:border-turquoise transition-all';
+        }
+      });
+    }
+
+    function updatePhotoshootEstimate() {
+      const hours = parseFloat(document.getElementById('shoot-hours').value || 2);
+      const ratePerHour = 1750000;
+      const total = hours * ratePerHour;
+
+      const formattedTotal = 'IDR ' + total.toLocaleString('id-ID');
+      const hourLabel = currentLang === 'id' ? 'Jam' : 'Hours';
+
+      document.getElementById('calc-summary-detail').textContent = `${hours} ${hourLabel} × IDR 1.750.000`;
+      document.getElementById('calc-total-price').textContent = formattedTotal;
+    }
+
+    function buildPhotoshootMessage() {
+      const date = document.getElementById('shoot-date').value || '-';
+      const hours = document.getElementById('shoot-hours').value || '2';
+      const name = document.getElementById('shoot-name').value || 'Guest';
+      const crew = document.getElementById('shoot-crew').value || '3-4 Orang';
+      const total = document.getElementById('calc-total-price').textContent;
+
+      return `Halo Bodyworks Spa Bali Concierge,\n\nSaya ingin mengajukan reservasi *Private Photoshoot Venue* dengan detail berikut:\n• Nama / Studio: ${name}\n• Kategori: ${selectedShootType}\n• Tanggal: ${date}\n• Durasi: ${hours} Jam (Sesi Pagi 06:00 - 08:30 WITA)\n• Jumlah Kru: ${crew}\n• Estimasi Biaya: ${total}\n\nMohon informasi ketersediaan tanggal tersebut. Terima kasih.`;
+    }
+
+    function submitPhotoshootInquiry(e) {
+      e.preventDefault();
+      const message = encodeURIComponent(buildPhotoshootMessage());
+      showToast(currentLang === 'id' ? 'Mengarahkan ke WhatsApp Concierge...' : 'Opening WhatsApp Concierge...');
+      window.open(`https://wa.me/6287815299000?text=${message}`, '_blank', 'noopener');
+    }
+
+    function copyInquiryToClipboard() {
+      const text = buildPhotoshootMessage();
+      const tempTextArea = document.createElement('textarea');
+      tempTextArea.value = text;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      try {
+        document.execCommand('copy');
+        showToast(currentLang === 'id' ? 'Detail pengajuan photoshoot berhasil disalin!' : 'Photoshoot inquiry details copied to clipboard!');
+      } catch (err) {
+        showToast('Unable to copy text.');
+      }
+      document.body.removeChild(tempTextArea);
+    }
+
+    // 6. GIFT VOUCHER PREVIEW & ORDER
+    function updateVoucherPreview() {
+      const recipientInput = document.getElementById('voucher-recipient').value.trim();
+      const selectVal = document.getElementById('voucher-select').value.split('|');
+
+      document.getElementById('voucher-preview-recipient').textContent = recipientInput || 'Someone Special';
+      document.getElementById('voucher-preview-package').textContent = selectVal[0];
+      document.getElementById('voucher-preview-value').textContent = selectVal[1];
+    }
+
+    function orderGiftVoucher() {
+      const recipient = document.getElementById('voucher-recipient').value.trim() || 'Someone Special';
+      const selectVal = document.getElementById('voucher-select').value.split('|');
+      const msg = encodeURIComponent(
+        `Halo Bodyworks Spa Bali,\n\nSaya ingin memesan *Gift Voucher*:\n• Untuk Penerima: ${recipient}\n• Paket / Nominal: ${selectVal[0]} (${selectVal[1]})\n\nMohon informasi proses pemesanannya. Terima kasih.`
+      );
+      showToast(currentLang === 'id' ? 'Menghubungkan ke Concierge Gift Voucher...' : 'Connecting to Gift Voucher Concierge...');
+      window.open(`https://wa.me/6287815299000?text=${msg}`, '_blank', 'noopener');
+    }
+
+    // 7. TERMS ACCORDION & MOBILE MENU
+    function toggleTermsAccordion() {
+      const content = document.getElementById('terms-content');
+      const chevron = document.getElementById('terms-chevron');
+      content.classList.toggle('hidden');
+      chevron.classList.toggle('rotate-180');
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // 8. BOOKING MODAL LOGIC
+    function populateModalTreatments() {
+      const select = document.getElementById('modal-treatment-select');
+      if (!select) return;
+      const optionsHtml = spaTreatments.map(t =>
+        `<option value="${t.id}">${t.name[currentLang]} (${t.duration} — ${t.price})</option>`
+      ).join('');
+      const photoOption = `<option value="photoshoot-access">Private Photoshoot Venue Access (06:00–08:30 WITA — IDR 1.750.000/hr)</option>`;
+      select.innerHTML = optionsHtml + photoOption;
+    }
+
+    function openBookingModal(selectedId) {
+      const modal = document.getElementById('booking-modal');
+      const select = document.getElementById('modal-treatment-select');
+      if (selectedId && selectedId !== 'spa' && select) {
+        select.value = selectedId;
+      }
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('booking-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function submitSpaBooking(e) {
+      e.preventDefault();
+      const select = document.getElementById('modal-treatment-select');
+      const serviceText = select.options[select.selectedIndex].text;
+      const date = document.getElementById('modal-date').value;
+      const time = document.getElementById('modal-time').value;
+      const name = document.getElementById('modal-name').value;
+      const guests = document.getElementById('modal-guests').value;
+
+      const msg = encodeURIComponent(
+        `Halo Bodyworks Spa Bali Concierge,\n\nSaya ingin melakukan reservasi:\n• Nama: ${name}\n• Layanan: ${serviceText}\n• Tanggal: ${date}\n• Jam: ${time}\n• Jumlah Tamu: ${guests}\n\nTerima kasih.`
+      );
+      closeBookingModal();
+      showToast(currentLang === 'id' ? 'Menghubungkan ke WhatsApp Concierge...' : 'Connecting to WhatsApp Concierge...');
+      window.open(`https://wa.me/6287815299000?text=${msg}`, '_blank', 'noopener');
+    }
+
+    // 9. LIGHTBOX GALLERY LOGIC
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      updateLightboxContent();
+      const lightbox = document.getElementById('lightbox-modal');
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox-modal');
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+    }
+
+    function navigateLightbox(step) {
+      currentLightboxIndex = (currentLightboxIndex + step + galleryItems.length) % galleryItems.length;
+      updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+      const item = galleryItems[currentLightboxIndex];
+      document.getElementById('lightbox-img').src = item.src;
+      document.getElementById('lightbox-tag').textContent = item.tag;
+      document.getElementById('lightbox-title').textContent = item.title[currentLang];
+      document.getElementById('lightbox-desc').textContent = item.desc[currentLang];
+    }
+
+    // 10. TOAST HELPER & SCROLL REVEAL
+    function showToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const msgEl = document.getElementById('toast-message');
+      msgEl.textContent = message;
+      toast.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-4', 'opacity-0');
+      });
+      setTimeout(() => {
+        toast.classList.add('translate-y-4', 'opacity-0');
+        setTimeout(() => toast.classList.add('hidden'), 300);
+      }, 3200);
+    }
+
+    function initScrollReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeBookingModal();
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
